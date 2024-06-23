@@ -1,0 +1,14 @@
+<h1>My tasks</h1>
+<ul>
+<% @tasks.each do |task| %>
+<li><%=link_to task.title, task_path(task), class: 'text-decoration-none text-dark' %>
+  <%= link_to "🗑️", task_path(task), data: {turbo_method: :delete, turbo_confirm: "Delete #{task.title}?"}%>
+</li>
+<% end %>
+</ul>
+
+
+
+
+
+<p><%= link_to "+ Add a new task", new_task_path, class: 'text-decoration-none text-danger' %></p>
